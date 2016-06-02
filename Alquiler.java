@@ -12,15 +12,17 @@ public class Alquiler
     private Barco barco;
     public static final int VALOR_FIJO_ALQUILER = 300;
     public static final int MULTIPLICADOR_ESLORA = 10;
+    private int amarre;
 
     /**
      * Constructor for objects of class Alquiler
      */
-    public Alquiler(int dia, Cliente cliente, Barco barco)
+    public Alquiler(int dia, Cliente cliente, Barco barco, int amarre)
     {
         this.numeroDias = dia;
         this.cliente = cliente;
         this.barco = barco;
+        this.amarre = amarre;
     }
 
     /**
@@ -28,7 +30,15 @@ public class Alquiler
      */
     public float getCosteAlquiler()
     {
-        return numeroDias*(barco.getEslora()*MULTIPLICADOR_ESLORA) + VALOR_FIJO_ALQUILER*barco.getCoeficientedeBernua();
+        return numeroDias*(barco.getEslora()*MULTIPLICADOR_ESLORA) + (VALOR_FIJO_ALQUILER*barco.getCoeficientedeBernua());
+    }
+    
+    /**
+     * Devuelve un int del amarre
+     */
+    public int getAmarre()
+    {
+        return amarre;
     }
     
     /**
